@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@octokit/oauth-app": "https://cdn.skypack.dev/@octokit/oauth-app@6.0.0?dts"
+    "@octokit/oauth-app": "https://esm.sh/@octokit/oauth-app@6.0.0"
   }
 }
