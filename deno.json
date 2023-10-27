@@ -1,0 +1,5 @@
+{
+  "imports": {
+    "@octokit/oauth-app": "https://unpkg.com/browse/@octokit/oauth-app@6.0.0/dist-src/index.js"
+  }
+}
