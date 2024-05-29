@@ -37,6 +37,7 @@ export async function handleRequest(
 
   // handle unknown routes
   if (!Object.values(routes).includes(route)) {
+    console.log( 'unknown route:', route );
     return null;
   }
 
@@ -45,6 +46,7 @@ export async function handleRequest(
     const text = await request.text();
     json = text ? JSON.parse(text) : {};
   } catch (error) {
+    console.log( '%%%%%%%%%%%%%% error:', error.message );
     return {
       status: 400,
       headers: {
@@ -68,6 +70,8 @@ export async function handleRequest(
     error_url?: string;
   };
   const headers = request.headers as { authorization?: string };
+
+  console.log( '%%%%%%%%%%%%% redirectUrl:', query.redirectUrl );
 
   try {
     if (route === routes.getLogin) {
@@ -279,6 +283,9 @@ export async function handleRequest(
       headers: { "access-control-allow-origin": "*" },
     };
   } catch (error: any) {
+
+    console.log( '%%%%%%%%%%%%%% error:', error.message );
+    
     return {
       status: 400,
       headers: {
