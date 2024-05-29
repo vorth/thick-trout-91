@@ -7,6 +7,9 @@ export async function handleRequest(
   { pathPrefix = "/api/github/oauth" }: HandlerOptions,
   request: OctokitRequest
 ): Promise<OctokitResponse | null> {
+
+  console.log( 'request:', JSON.stringify( request, null, 2 ) );
+  
   if (request.method === "OPTIONS") {
     return {
       status: 200,
