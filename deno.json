@@ -1,5 +1,5 @@
 {
   "imports": {
-    "@octokit/oauth-app": "https://esm.sh/@octokit/oauth-app@6.0.0"
+    "@octokit/oauth-app": "https://esm.sh/@octokit/oauth-app@7.1.2"
   }
 }

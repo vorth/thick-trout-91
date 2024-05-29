@@ -1,16 +1,18 @@
 
-import { OAuthApp, createWebWorkerHandler } from "@octokit/oauth-app";
+import { OAuthApp } from "@octokit/oauth-app";
+import { createDenoHandler } from "./oauth-app-addon/middleware/deno/index.ts";
+
 const app = new OAuthApp({
   clientType: "oauth-app",
   clientId: Deno.env .get( 'GITHUB_CLIENT_ID' ),
   clientSecret: Deno.env .get( 'GITHUB_CLIENT_SECRET' ),
 });
 
-const handleRequest = createWebWorkerHandler(app, {
+if ( !app )
+  console.log( 'No app created' );
+
+const handleRequest = createDenoHandler( app, {
   pathPrefix: "/api/github/oauth",
 });
 
-addEventListener("fetch", (event) => {
-  event.respondWith(handleRequest(event.request));
-});
-// can now receive user authorization callbacks at /api/github/oauth/callback
+Deno.serve( handleRequest );
