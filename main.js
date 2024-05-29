@@ -6,6 +6,7 @@ const app = new OAuthApp({
   clientType: "oauth-app",
   clientId: Deno.env .get( 'GITHUB_CLIENT_ID' ),
   clientSecret: Deno.env .get( 'GITHUB_CLIENT_SECRET' ),
+  redirectUrl: "https://www.vzome.com/app/github-callback",
 });
 
 if ( !app )
